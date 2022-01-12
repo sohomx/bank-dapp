@@ -12,7 +12,7 @@ const hre = require("hardhat");
 
 async function main() {
   const [owner] = await hre.ethers.getSigners();
-  const BankContractFactory = await hre.ethers.getContractFactory();
+  const BankContractFactory = await hre.ethers.getContractFactory("Bank");
   const BankContract = await BankContractFactory.deploy();
   await BankContract.deployed();
 
@@ -23,6 +23,6 @@ async function main() {
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.log(error);
+    console.error(error);
     process.exit(1);
   });
