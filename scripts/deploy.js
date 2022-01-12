@@ -15,4 +15,14 @@ async function main() {
   const BankContractFactory = await hre.ethers.getContractFactory();
   const BankContract = await BankContractFactory.deploy();
   await BankContract.deployed();
+
+  console.log("BankContract deployed to:", BankContract.address);
+  console.log("BankContract owner address:", BankContract.address);
 }
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.log(error);
+    process.exit(1);
+  });
